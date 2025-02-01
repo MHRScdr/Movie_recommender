@@ -1,10 +1,13 @@
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+package main;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class User {
     private String name;
     private String password;
     private String username;
+    private List<String> favoritMoviesName = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -28,6 +31,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setFavoritMoviesName(String name){
+        favoritMoviesName.add(name);
+    }
+
+    public List<String> getFavoritMoviesName(){
+        return favoritMoviesName;
     }
 
     public User(String name , String username , String password){

@@ -1,3 +1,5 @@
+package main;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -209,7 +211,7 @@ public class TMBD {
         // نام فیلمی که می‌خواهید اطلاعات آن را دریافت کنید
         String movieName = "Inception";
 
-        // ایجاد شیء از کلاس TMBD
+        // ایجاد شیء از کلاس main.TMBD
         TMBD movie = new TMBD(movieName);
 
         // چاپ اطلاعات فیلم
