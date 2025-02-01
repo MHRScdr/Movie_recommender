@@ -18,6 +18,7 @@ public class TMBD {
     private String movieOverview;
     private String movieReleaseDate;
     private String movieGenre;
+    private List<String> movieGenreList;
     private int movieRuntime;
     private double moviePopularity;
     private double movieVoteAverage;
@@ -31,6 +32,7 @@ public class TMBD {
         getMovieId(movieName , API_KEY , LANGUAGE);
         getMovieData();
         getCreditsData();
+        getMovieGenre();
         setAll();
     }
 
@@ -38,7 +40,6 @@ public class TMBD {
         this.movieTitle = getMovieTitle();
         this.movieOverview = getMovieOverview();
         this.movieReleaseDate = getMovieReleaseDate();
-        this.movieGenre = getMovieGenre();
         this.movieRuntime = getMovieRuntime();
         this.moviePopularity = getMoviePopularity();
         this.movieVoteAverage = getMovieVoteAverage();
@@ -146,15 +147,17 @@ public class TMBD {
         return movieData.get("release_date").getAsString();
     }
 
-    public String getMovieGenre() {
+    public List<String> getMovieGenre() {
+        movieGenreList = new ArrayList<>();
         JsonArray genres = movieData.getAsJsonArray("genres");
         StringBuilder genreString = new StringBuilder();
         for (int i = 0; i < genres.size(); i++) {
             JsonObject genre = genres.get(i).getAsJsonObject();
             String genreName = genre.get("name").getAsString();
-            genreString.append(genreName);
+            genreString.append(genreName + " ");
+            movieGenreList.add(genreName);
         }
-        return genreString.toString();
+        return movieGenreList;
     }
 
     public int getMovieRuntime() {
