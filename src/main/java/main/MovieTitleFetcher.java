@@ -1,7 +1,7 @@
-package DataBase;
+package org.example;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.codehaus.jettison.json.JSONArray;
+import org.codehaus.jettison.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -10,7 +10,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieTitlesFetcher {
+public class MovieTitleFetcher {
 
     private static final String API_URL = "https://api.themoviedb.org/3/movie/popular";
     private static final String API_KEY = "b752f10060dab915b447288ecd333f61";

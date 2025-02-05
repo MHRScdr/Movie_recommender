@@ -1,4 +1,4 @@
-package main;
+package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,9 @@ public class User {
     private String name;
     private String password;
     private String username;
-    private List<String> favoritMoviesName = new ArrayList<>();
+    public static ArrayList<User> users = new ArrayList<User>();
+    private List<TMBD> favoritMoviesName = new ArrayList<>();
+    private List<String> favoritMoviesUsername = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -15,6 +17,14 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<String> getFavoritMoviesUsername() {
+        return favoritMoviesUsername;
+    }
+
+    public void setFavoritMoviesUsername(List<String> favoritMoviesUsername) {
+        this.favoritMoviesUsername = favoritMoviesUsername;
     }
 
     public String getUsername() {
@@ -34,10 +44,10 @@ public class User {
     }
 
     public void setFavoritMoviesName(String name){
-        favoritMoviesName.add(name);
+        favoritMoviesName.add(new TMBD(name));
     }
 
-    public List<String> getFavoritMoviesName(){
+    public List<TMBD> getFavoritMoviesName(){
         return favoritMoviesName;
     }
 
@@ -45,6 +55,7 @@ public class User {
         this.name = name;
         this.username = username;
         this.password = password;
+        users.add(this);
     }
 
 }
